@@ -23,7 +23,8 @@ Best with Neovim or Vim 8 with +python3 extensions enabled.
 
 ## Install
 
-**_1._** Let's clone this repo! Clone to `~/.config/nvim`,
+**_1._** Let's clone this repo! Clone to `~/.config/nvim`, check out the active branch
+at `developing`,
 we'll also symlink it for Vim:
 
 ```sh
