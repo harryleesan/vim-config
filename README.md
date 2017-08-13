@@ -29,7 +29,7 @@ we'll also symlink it for Vim:
 
 ```sh
 mkdir ~/.config
-git clone git://github.com/harryleesan/vim-config.git ~/.config/nvim
+git clone https://github.com/harryleesan/vim-config.git ~/.config/nvim
 ln -s ~/.vim ~/.config/nvim
 ```
 
@@ -131,7 +131,7 @@ Name           | Description
 [rafi/vim-badge] | Bite-size badges for the tab & status lines
 [itchyny/vim-gitbranch] | Lightweight git branch detection
 [itchyny/vim-parenmatch] | Efficient alternative to the standard matchparen plugin
-[thinca/vim-localrc] | Enable configuration file of each directory
+[embear/vim-localvimrc] | Enable configuration file of each directory
 [christoomey/tmux-navigator] | Seamless navigation between tmux panes and vim splits
 [junegunn/vim-peekaboo] | See the contents of registers
 [tpope/vim-sleuth] | Heuristically set buffer indent options
@@ -169,6 +169,7 @@ Name           | Description
 [raimon49/requirements.txt.vim] | Python requirements file format
 [StanAngeloff/php.vim] | Up-to-date PHP syntax file (5.3 – 7.1 support)
 [shawncplus/phpcomplete.vim] | PHP completion
+[joonty/vdebug] | Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
 [osyo-manga/vim-monster] | Ruby code completion
 [toyamarinyon/vim-swift] | Swift support
 [vim-jp/syntax-vim-ex] | Improved Vim syntax highlighting
@@ -286,7 +287,7 @@ Name           | Description
 [rafi/vim-badge]: https://github.com/rafi/vim-badge
 [itchyny/vim-gitbranch]: https://github.com/itchyny/vim-gitbranch
 [itchyny/vim-parenmatch]: https://github.com/itchyny/vim-parenmatch
-[thinca/vim-localrc]: https://github.com/thinca/vim-localrc
+[embear/vim-localvimrc]:https://github.com/embear/vim-localvimrc
 [christoomey/tmux-navigator]: https://github.com/christoomey/vim-tmux-navigator
 [tpope/vim-sleuth]: https://github.com/tpope/vim-sleuth
 [itchyny/cursorword]: https://github.com/itchyny/vim-cursorword
@@ -317,6 +318,7 @@ Name           | Description
 [raimon49/requirements.txt.vim]: https://github.com/raimon49/requirements.txt.vim
 [StanAngeloff/php.vim]: https://github.com/StanAngeloff/php.vim
 [shawncplus/phpcomplete.vim]: https://github.com/shawncplus/phpcomplete.vim
+[joonty/vdebug]: https://github.com/joonty/vdebug
 [osyo-manga/vim-monster]: https://github.com/osyo-manga/vim-monster
 [toyamarinyon/vim-swift]: https://github.com/toyamarinyon/vim-swift
 [vim-jp/syntax-vim-ex]: https://github.com/vim-jp/syntax-vim-ex
