@@ -32,6 +32,7 @@
 
 - { repo: mitsuhiko/vim-jinja, on_ft: [ htmljinja, jinja ]}
 - { repo: mustache/vim-mustache-handlebars, on_ft: html }
+- { repo: euclio/vim-markdown-composer, on_ft: markdown }
 
 - repo: pearofducks/ansible-vim
   on_ft: [ ansible, ansible_hosts, ansible_template ]
