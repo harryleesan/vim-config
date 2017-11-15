@@ -464,6 +464,7 @@ Arrows | Normal | Resize splits (* Enable `g:elite_mode` in `.vault.vim`)
 `<leader>`+`d` | Normal/Visual | Duplicate line or selection
 `<leader>`+`S` | Normal/Visual | Source selection
 `<leader>`+`ml` | Normal | Append modeline
+`<ESC>`+`<ESC>` | Visual/Insert/Term | Returns to Normal mode from any mode
 
 ### File Operations
 
