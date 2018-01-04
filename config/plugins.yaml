@@ -33,6 +33,7 @@
 - { repo: mitsuhiko/vim-jinja, on_ft: [ htmljinja, jinja ]}
 - { repo: mustache/vim-mustache-handlebars, on_ft: html }
 - { repo: euclio/vim-markdown-composer, on_ft: markdown }
+- { repo: leafgarland/typescript-vim, on_ft: typescript }
 
 - repo: pearofducks/ansible-vim
   on_ft: [ ansible, ansible_hosts, ansible_template ]
@@ -236,7 +237,7 @@
     let g:lint_filetypes = [
       \  'ansible', 'python', 'php', 'ruby', 'vim', 'go', 'sh',
       \  'javascript', 'jsx', 'javascript.jsx', 'json', 'css',
-      \  'markdown', 'html', 'yaml'
+      \  'markdown', 'html', 'yaml', 'ts'
       \ ]
     autocmd MyAutoCmd BufWritePost *
       \ if index(g:lint_filetypes, &filetype) > -1 && empty(&buftype)
