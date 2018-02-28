@@ -108,6 +108,8 @@
 - { repo: shawncplus/phpcomplete.vim, on_ft: php, on_i: 1 }
 - { repo: joonty/vdebug, on_ft: php }
 
+- { repo: udalov/kotlin-vim, on_ft: kotlin }
+
 - { repo: tbastos/vim-lua, on_ft: lua }
 - { repo: osyo-manga/vim-monster, on_ft: ruby }
 - { repo: toyamarinyon/vim-swift, on_ft: swift }

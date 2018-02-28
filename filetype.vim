@@ -21,6 +21,9 @@ augroup filetypedetect
 	autocmd BufNewFile,BufRead Jenkinsfile           setfiletype groovy
 	autocmd BufNewFile,BufRead Tmuxfile,tmux/config  setfiletype tmux
 
+	autocmd BufNewFile,BufRead *.kt setfiletype kotlin
+	autocmd BufNewFile,BufRead *.jet setfiletype kotlin
+
 augroup END
 
 " vim: set ts=2 sw=2 tw=80 noet :
