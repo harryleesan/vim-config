@@ -9,6 +9,7 @@
 " ---
 " let g:deoplete#auto_complete_delay = 50  " Default is 50
 " let g:deoplete#auto_refresh_delay = 500  " Default is 500
+let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 0
 let g:deoplete#enable_camel_case = 1
 let g:deoplete#max_abbr_width = 35
