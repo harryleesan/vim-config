@@ -37,6 +37,13 @@
 - { repo: othree/csscomplete.vim, on_ft: css }
 - { repo: mustache/vim-mustache-handlebars, on_ft: html }
 - { repo: pearofducks/ansible-vim, on_ft: [ yaml.ansible, ansible_hosts ]}
+- { repo: leafgarland/typescript-vim, on_ft: typescript }
+- { repo: Quramy/tsuquyomi, on_ft: typescript }
+- { repo: HerringtonDarkholme/yats.vim, on_ft: typescript }
+
+- repo: mhartington/nvim-typescript
+  on_ft: typescript
+  build: 'sh -c "./install.sh"'
 
 - repo: othree/html5.vim
   on_ft: html
@@ -251,7 +258,7 @@
     let g:lint_types = [
       \  'yaml.ansible', 'python', 'php', 'ruby', 'vim', 'go', 'sh',
       \  'javascript', 'jsx', 'javascript.jsx', 'json', 'css',
-      \  'markdown', 'html', 'yaml'
+      \  'markdown', 'html', 'yaml', 'ts'
       \ ]
     autocmd MyAutoCmd BufWritePost *
       \  if expand('%:p') !~ $VIMPATH

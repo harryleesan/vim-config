@@ -351,4 +351,6 @@ function! OpenChangedFiles()
 	endfor
 endfunction
 
+tnoremap <Esc><Esc> <C-\><C-N>
+
 " vim: set ts=2 sw=2 tw=80 noet :
