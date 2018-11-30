@@ -40,6 +40,7 @@
 - { repo: leafgarland/typescript-vim, on_ft: typescript }
 - { repo: Quramy/tsuquyomi, on_ft: typescript }
 - { repo: HerringtonDarkholme/yats.vim, on_ft: typescript }
+- { repo: euclio/vim-markdown-composer, on_ft: markdown }
 
 - repo: mhartington/nvim-typescript
   on_ft: typescript
