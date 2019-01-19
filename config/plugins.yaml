@@ -20,6 +20,7 @@
     autocmd MyAutoCmd FileType denite,qf,nerdtree let b:cursorword=0
     autocmd MyAutoCmd InsertEnter * let b:cursorword=0
     autocmd MyAutoCmd InsertLeave * let b:cursorword=1
+- repo: tpope/vim-obsession
 
 # Vim8 only:
 - { repo: roxma/vim-hug-neovim-rpc, if: ! has('nvim') }
