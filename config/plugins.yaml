@@ -11,7 +11,6 @@
 - repo: christoomey/vim-tmux-navigator
 - repo: junegunn/vim-peekaboo
 - repo: tpope/vim-sleuth
-- repo: lambdalisue/suda.vim
 - repo: sgur/vim-editorconfig
 - repo: itchyny/vim-gitbranch
 - repo: itchyny/vim-parenmatch
@@ -23,8 +22,8 @@
 - repo: tpope/vim-obsession
 
 # Vim8 only:
-- { repo: roxma/vim-hug-neovim-rpc, if: ! has('nvim') }
 - { repo: roxma/nvim-yarp, if: ! has('nvim') }
+- { repo: roxma/vim-hug-neovim-rpc, if: ! has('nvim'), depends: nvim-yarp }
 
 # Lazy Loading
 # ==========================================
@@ -58,16 +57,22 @@
 - repo: plasticboy/vim-markdown
   on_ft: markdown
   hook_add: |
-    let g:vim_markdown_override_foldtext = 0
-    let g:vim_markdown_initial_foldlevel = 999
-    let g:vim_markdown_new_list_item_indent = 2
-    let g:vim_markdown_frontmatter = 1
+    let g:vim_markdown_folding_level = 6
+    let g:vim_markdown_emphasis_multiline = 0
     let g:vim_markdown_conceal = 0
+    let g:vim_markdown_frontmatter = 1
+    let g:vim_markdown_new_list_item_indent = 2
+    let g:vim_markdown_edit_url_in = 'vsplit'
     let g:vim_markdown_fenced_languages = [
       \ 'c++=cpp',
       \ 'viml=vim',
       \ 'bash=sh',
-      \ 'ini=dosini'
+      \ 'ini=dosini',
+      \ 'js=javascript',
+      \ 'json=javascript',
+      \ 'docker=Dockerfile',
+      \ 'makefile=make',
+      \ 'py=python'
       \ ]
 
 - repo: rhysd/vim-gfm-syntax
@@ -86,11 +91,16 @@
     highlight! link jsFutureKeys PreProc
 
 - { repo: othree/jspc.vim, on_ft: [ javascript, jsx, javascript.jsx ] }
-- { repo: MaxMEllon/vim-jsx-pretty, on_ft: [ javascript, jsx, javascript.jsx ]}
+- { repo: posva/vim-vue, on_ft: [ vue ]}
 - { repo: heavenshell/vim-jsdoc, on_ft: [ javascript, jsx, javascript.jsx ] }
 - { repo: jparise/vim-graphql, on_ft: [ javascript, jsx, javascript.jsx ] }
 - { repo: moll/vim-node, on_ft: [ javascript, jsx, javascript.jsx ] }
 - { repo: elzr/vim-json, on_ft: json }
+
+- repo: MaxMEllon/vim-jsx-pretty
+  on_ft: [ javascript, jsx, javascript.jsx ]
+  depends: vim-javascript
+  hook_source: let g:vim_jsx_pretty_colorful_config = 1
 
 # pangloss/javascript vs. othree/yajs
 #- { repo: othree/yajs.vim, on_ft: [ javascript, jsx, javascript.jsx ]}
@@ -135,6 +145,11 @@
 - { repo: tmux-plugins/vim-tmux, on_ft: tmux }
 - { repo: andreshazard/vim-logreview, on_ft: logreview }
 
+- repo: hashivim/vim-terraform
+  on_ft: terraform
+  on_cmd: [ Terraform, TerraformFmt ]
+  hook_source: let g:terraform_fmt_on_save = 1
+
 - { repo: cespare/vim-toml, on_ft: toml }
 - { repo: mboughaba/i3config.vim, on_ft: i3config }
 - { repo: dag/vim-fish, on_ft: fish }
@@ -147,24 +162,26 @@
 # ==========================================
 # Commands
 # --------
-# - repo: Shougo/defx.nvim
-#   on_map: Defx
-#   hook_source: source $VIMPATH/config/plugins/defx.vim
+- repo: Shougo/defx.nvim
+  on_cmd: Defx
+  hook_source: source $VIMPATH/config/plugins/defx.vim
 
-# - repo: kristijanhusak/defx-git
-#   on_source: defx.nvim
+- repo: kristijanhusak/defx-git
+  on_source: defx.nvim
+  hook_source: |
+   let g:defx_git#raw_mode = 1
+   let g:defx_git#show_ignored = 1
 
-# - repo: kristijanhusak/defx-icons
-#   on_source: defx.nvim
+- repo: kristijanhusak/defx-icons
+  on_source: defx.nvim
 
 - repo: scrooloose/nerdtree
   on_map: { n: <Plug> }
+  trusted: 1
   hook_post_source: source $VIMPATH/config/plugins/nerdtree.vim
 
 - { repo: Xuyuanp/nerdtree-git-plugin, on_source: nerdtree }
-- { repo: tpope/vim-commentary, on_map: <Plug>Commentary }
 - { repo: t9md/vim-choosewin, on_map: { n: <Plug> }}
-- { repo: Shougo/vinarise.vim, on_cmd: Vinarise }
 - { repo: kana/vim-niceblock, on_map: { x: <Plug> }}
 - { repo: guns/xterm-color-table.vim, on_cmd: XtermColorTable }
 - { repo: mbbill/undotree, on_cmd: UndotreeToggle }
@@ -175,6 +192,29 @@
 - { repo: jreybert/vimagit, on_cmd: Magit }
 - { repo: tweekmonster/helpful.vim, on_cmd: HelpfulVersion }
 - { repo: lambdalisue/gina.vim, on_cmd: Gina }
+- { repo: cocopon/colorswatch.vim, on_cmd: ColorSwatchGenerate }
+- { repo: kana/vim-altr, on_map: { n: <Plug> }}
+- { repo: lambdalisue/suda.vim, on_path: 'suda://' }
+
+- repo: tyru/open-browser.vim
+  on_map: { nxv: <Plug>(openbrowser }
+  on_cmd: [ OpenBrowser, OpenBrowserSearch, OpenBrowserSmartSearch ]
+
+- repo: tyru/open-browser-unicode.vim
+  depends: open-browser.vim
+  on_cmd: OpenBrowserUnicode
+
+- repo: tyru/open-browser-github.vim
+  depends: open-browser.vim
+  on_cmd: [ OpenGithubFile, OpenGithubIssue, OpenGithubProject ]
+
+- { repo: tyru/caw.vim, on_map: { nx: <Plug> }}
+
+# - { repo: tpope/vim-commentary, on_map: <Plug>Commentary }
+
+- repo: Shougo/vinarise.vim
+  on_cmd: Vinarise
+  hook_add: let g:vinarise_enable_auto_detect = 1
 
 - repo: mzlogin/vim-markdown-toc
   on_cmd: [ GenTocGFM, GenTocRedcarpet, GenTocGitLab, UpdateToc ]
@@ -209,7 +249,7 @@
 # Interface
 # ---------
 - { repo: haya14busa/vim-asterisk, on_map: { nv: <Plug> }}
-- { repo: rhysd/accelerated-jk, on_map: { n: <Plug> }}
+- { repo: rhysd/accelerated-jk, on_map: { n: <Plug> }, if: $SUDO_USER == '' }
 - { repo: haya14busa/vim-edgemotion, on_map: { nv: <Plug> }}
 - { repo: t9md/vim-quickhl, on_map: { nv: <Plug> }}
 - { repo: rafi/vim-sidemenu, on_map: { nv: <Plug> }}
@@ -231,9 +271,9 @@
     let g:indent_guides_default_mapping = 0
     let g:indent_guides_guide_size = 1
     let g:indent_guides_indent_levels = 15
-    let g:custom_exclude = [ 'help', 'denite', 'codi' ]
+    let g:indent_exclude = [ 'help', 'denite', 'codi' ]
     autocmd MyAutoCmd BufEnter *
-      \ if ! empty(&l:filetype) && index(g:custom_exclude, &l:filetype) == -1
+      \ if ! empty(&l:filetype) && index(g:indent_exclude, &l:filetype) == -1
       \|   if g:indent_guides_autocmds_enabled == 0 && &l:expandtab
       \|     IndentGuidesEnable
       \|   elseif g:indent_guides_autocmds_enabled == 1 && ! &l:expandtab
@@ -247,6 +287,8 @@
     let g:bookmark_auto_save_file = $VARPATH.'/bookmarks'
     let g:bookmark_no_default_key_mappings = 1
     let g:bookmark_disable_ctrlp = 1
+
+- { repo: hotwatermorning/auto-git-diff, on_ft: gitrebase }
 
 - repo: rhysd/committia.vim
   on_path: COMMIT_EDITMSG
@@ -268,6 +310,10 @@
       \      && empty(&buftype)
       \|   Neomake
       \| endif
+
+- repo: lambdalisue/vim-improve-diff
+  on_event: [ InsertLeave, BufWinLeave ]
+  on_cmd: DiffOrig
 
 - repo: junegunn/goyo.vim
   depends: limelight.vim
@@ -362,6 +408,7 @@
 - { repo: Shougo/neosnippet-snippets, lazy: 1 }
 - { repo: Shougo/context_filetype.vim, lazy: 1 }
 - { repo: Shougo/neco-vim, on_ft: vim }
+- { repo: Shougo/neoinclude.vim, on_source: deoplete.nvim }
 - { repo: Shougo/neco-syntax, on_source: deoplete.nvim }
 
 - repo: davidhalter/jedi-vim
@@ -380,7 +427,6 @@
     let g:jedi#use_splits_not_buffers = 'right'
 
 - repo: zchee/deoplete-go
-  if: ! empty($GOPATH)
   build: make
   on_ft: go
   on_event: InsertEnter
@@ -407,6 +453,11 @@
   on_ft: [ markdown, gitcommit ]
   on_event: InsertEnter
 
+- repo: juliosueiras/vim-terraform-completion
+  hook_add: let g:terraform_completion_keys = 1
+  on_ft: [ terraform ]
+  on_event: InsertEnter
+
 - repo: ternjs/tern_for_vim
   build: npm install
   if: executable('npm')
@@ -425,16 +476,23 @@
 # ------
 - repo: Shougo/denite.nvim
   on_cmd: Denite
+  trusted: 1
   hook_source: source $VIMPATH/config/plugins/denite.vim
 
-# - repo: nixprime/cpsm
-#   build: 'sh -c "PY3=ON ./install.sh"'
-
+- { repo: Shougo/neoyank.vim, on_event: TextYankPost, on_source: denite.nvim }
 - { repo: Shougo/junkfile.vim, on_source: denite.nvim }
 - { repo: chemzqm/unite-location, on_source: denite.nvim }
 - { repo: chemzqm/denite-git, on_source: denite.nvim }
 - { repo: rafi/vim-denite-z, on_source: denite.nvim }
 - { repo: rafi/vim-denite-session, on_source: denite.nvim }
+
+# - repo: nixprime/cpsm
+#   build: 'sh -c "PY3=ON ./install.sh"'
+
+# - repo: raghur/fruzzy
+#   on_source: denite.nvim
+#   hook_source: let g:fruzzy#sortonempty = 0
+#   hook_post_update: call fruzzy#install()
 
 # - { repo: rafi/vim-denite-task, on_source: denite.nvim }
 # - repo: rafi/vim-denite-mpc
