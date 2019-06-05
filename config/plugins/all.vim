@@ -183,6 +183,7 @@ if dein#tap('python_match.vim')
 endif
 
 if dein#tap('goyo.vim')
+	let g:goyo_width=100
 	nnoremap <Leader>G :Goyo<CR>
 endif
 
