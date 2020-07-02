@@ -458,7 +458,7 @@
     autocmd User asyncomplete_setup call asyncomplete#register_source(
       \ asyncomplete#sources#necovim#get_source_options({
       \ 'name': 'necovim',
-      \ 'whitelist': ['vim'],
+      \ 'allowlist': ['vim'],
       \ 'completor': function('asyncomplete#sources#necovim#completor'),
       \ }))
 
@@ -469,8 +469,8 @@
     autocmd User asyncomplete_setup call asyncomplete#register_source(
       \ asyncomplete#sources#tags#get_source_options({
       \ 'name': 'tags',
-      \ 'whitelist': ['*'],
-      \ 'blacklist': ['go', 'python', 'vim', 'denite-filter', 'clap_input'],
+      \ 'allowlist': ['*'],
+      \ 'blocklist': ['go', 'python', 'vim', 'denite-filter', 'clap_input'],
       \ 'completor': function('asyncomplete#sources#tags#completor'),
       \ 'config': { 'max_file_size': 5000000 },
       \ }))
@@ -482,8 +482,8 @@
       \ asyncomplete#sources#file#get_source_options({
       \ 'name': 'file',
       \ 'priority': 10,
-      \ 'whitelist': ['*'],
-      \ 'blacklist': ['denite-filter', 'clap_input'],
+      \ 'allowlist': ['*'],
+      \ 'blocklist': ['denite-filter', 'clap_input'],
       \ 'completor': function('asyncomplete#sources#file#completor')
       \ }))
 
@@ -495,8 +495,8 @@
     let g:tmuxcomplete#asyncomplete_source_options = {
       \ 'name': 'tmux',
       \ 'priority': 0,
-      \ 'whitelist': ['*'],
-      \ 'blacklist': ['denite-filter', 'clap_input'],
+      \ 'allowlist': ['*'],
+      \ 'blocklist': ['denite-filter', 'clap_input'],
       \ 'config': {
       \   'splitmode': 'words',
       \   'filter_prefix': 1,
@@ -515,8 +515,8 @@
       \ asyncomplete#sources#ultisnips#get_source_options({
       \ 'name': 'snip',
       \ 'priority': 0,
-      \ 'whitelist': ['*'],
-      \ 'blacklist': ['denite-filter', 'clap_input'],
+      \ 'allowlist': ['*'],
+      \ 'blocklist': ['denite-filter', 'clap_input'],
       \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
       \ }))
 
