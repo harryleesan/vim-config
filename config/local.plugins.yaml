@@ -14,3 +14,5 @@
   on_ft: puml
 - repo: jceb/vim-orgmode
   on_ft: org
+  hook_add: |
+    let g:org_export_emacs = "/usr/local/bin/emacs"
