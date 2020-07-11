@@ -7,10 +7,10 @@
 - repo: iamcco/markdown-preview.nvim
   on_ft: ['markdown', 'pandoc.markdown', 'rmd']
 # - repo: scrooloose/vim-slumlord
-  # on_ft: puml
+#   on_ft: puml
 - repo: aklt/plantuml-syntax
   # on_ft: puml
-# - repo: weirongxu/plantuml-previewer.vim
-  # on_ft: puml
+- repo: weirongxu/plantuml-previewer.vim
+  on_ft: puml
 - repo: jceb/vim-orgmode
   on_ft: org
