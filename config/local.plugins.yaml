@@ -1,0 +1,16 @@
+# - repo: wesQ3/vim-windowswap
+- repo: habamax/vim-asciidoctor
+  on_ft: adoc
+  hook_add: |
+    let g:asciidoctor_extensions = ['asciidoctor-diagram']
+# - repo: padawan-php/deoplete-padawan
+- repo: iamcco/markdown-preview.nvim
+  on_ft: ['markdown', 'pandoc.markdown', 'rmd']
+# - repo: scrooloose/vim-slumlord
+  # on_ft: puml
+- repo: aklt/plantuml-syntax
+  # on_ft: puml
+# - repo: weirongxu/plantuml-previewer.vim
+  # on_ft: puml
+- repo: jceb/vim-orgmode
+  on_ft: org
