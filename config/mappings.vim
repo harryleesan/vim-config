@@ -160,8 +160,8 @@ nnoremap <expr> gp '`['.strpart(getregtype(), 0, 1).'`]'
 " `<Tab>`/`<S-Tab>` to move between matches without leaving incremental search.
 " Note dependency on `'wildcharm'` being set to `<C-z>` in order for this to
 " work.
-cnoremap <expr> <Tab>
-	\ getcmdtype() == '/' \|\| getcmdtype() == '?' ? '<CR>/<C-r>/' : '<C-z>'
+" cnoremap <expr> <Tab>
+"	\ getcmdtype() == '/' \|\| getcmdtype() == '?' ? '<CR>/<C-r>/' : '<C-z>'
 " cnoremap <expr> <S-Tab>
 "	\ getcmdtype() == '/' \|\| getcmdtype() == '?' ? '<CR>?<C-r>/' : '<S-Tab>'
 
@@ -211,7 +211,7 @@ cnoremap <Down> <C-n>
 map <Leader>cd :lcd %:p:h<CR>:pwd<CR>
 
 " Open file under the cursor in a vsplit
-nnoremap gf :rightbelow wincmd f<CR>
+nnoremap gf :vertical wincmd f<CR>
 
 " Fast saving from all modes
 nnoremap <Leader>w :write<CR>
@@ -256,6 +256,16 @@ nmap <silent> <Leader>h
 " }}}
 " Custom Tools {{{
 " ------------
+
+" Terminal
+if exists(':tnoremap')
+	if has('nvim')
+		tnoremap   jj         <C-\><C-n>
+	else
+		tnoremap   <ESC><ESC>  <C-w>N
+		tnoremap   jj          <C-w>N
+	endif
+endif
 
 " Source line and selection in vim
 vnoremap <Leader>S y:execute @@<CR>:echo 'Sourced selection.'<CR>
