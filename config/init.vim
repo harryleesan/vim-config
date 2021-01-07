@@ -50,6 +50,7 @@ let g:loaded_matchparen = 1
 let g:loaded_2html_plugin = 1
 let g:loaded_logiPat = 1
 let g:loaded_rrhelper = 1
+let g:no_gitrebase_maps = 1
 
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
@@ -129,6 +130,7 @@ function! s:main()
 	call s:use_{s:package_manager}()
 endfunction
 
+" Use dein as a plugin manager
 function! s:use_dein()
 	let l:cache_path = $DATA_PATH . '/dein'
 
@@ -320,7 +322,7 @@ function! s:load_yaml(filename)
 	elseif s:convert_tool ==# 'python'
 		let l:cmd = "python -c 'import sys,yaml,json; y=yaml.safe_load(sys.stdin.read()); print(json.dumps(y))'"
 	elseif s:convert_tool ==# 'yq'
-		let l:cmd = 'yq r -j -'
+		let l:cmd = 'yq e -j -I 0'
 	else
 		let l:cmd = s:convert_tool
 	endif
